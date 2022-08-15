@@ -1,0 +1,92 @@
+<html>
+    <head>
+        <style>
+            div.hello {
+                /*display: block;*/
+                /*margin-left: auto;
+                margin-right: auto;
+                width: 20em;*/
+                /*top: 50%;
+                left: 50%;
+                position: absolute;
+                transform: translate(0, -50%);
+                background-color: aquamarine;*/
+                
+                /*height: 10em;
+                display: flex;
+                align-items: center;
+                */
+                
+                /*height: 10em;
+                position: relative;
+                */
+
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                
+            }
+
+            h1 {
+                /*height: 10em;
+                position: relative;*/
+                
+                /*margin: 0;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin-right: -50%;
+                transform: translate(-50%, -50%);
+                */
+                margin: 0;
+                animation: 4s linear 0s infinite alternate blink;
+
+            }
+
+            @keyframes blink{
+                0%   {
+                    color: black;
+                }
+                45% {
+                    color: white;
+                }
+                55% {
+                    color: white;
+                }
+
+                100% {
+                    color: black;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="hello">
+            <h1 id="hello_msg">Привет, .</h1>
+        </div>
+    </body>
+    <script>
+        let text = document.getElementById('hello_msg');
+        let text2 = 'Adkvsdknmvls psodv';
+        let color2 = 'white';
+        
+        let i = 0;   
+        setTimeout(()=> {
+
+            setInterval(function() {
+                    content = text.textContent;
+                    content_color = text.style.color
+                    text.textContent = text2;
+                    text.style.color = color2
+                    text2 = content;
+                    color2 = content_color;
+                }, 4000);
+        }, 2000);
+        
+        
+        
+        console.log(text);
+
+    </script>
+</html>

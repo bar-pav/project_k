@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset='utf-8'>
+        <title>Template</title>
+    <style>
+        /* html{
+            width: 1920px;
+            height: 1080px;
+        } */
+
+        body{
+            background-color: blue;
+            padding: 0;
+            margin: 0;
+        }
+        .container{
+            width: 100%;
+            height: 100vh;
+            /* background-color: rgb(153, 192, 255); */
+            position: relative;
+	    overflow: hidden;
+        }
+
+        .block{
+            background-color: rgb(16, 16, 155);
+            position: absolute;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+        }
+        .static-block{
+            background-color: rgb(16, 16, 155);
+            position: absolute;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+        }
+
+    </style>
+    </head>
+    <body>
+        <div class="container">
+            
+        </div>
+        <!-- <div style="width: 100px; height: 200px; top: 500px; left:500px; position: absolute; background-color: brown;"></div> -->
+    </body>
+    <script src="../lib/anime.js"></script>
+
+    <script>
+        let width  = 100;
+        let height = 200;
+        let container = document.getElementsByClassName('container')[0];
+        /*for(let i=0; i < 60; i++){
+            var sdiv = document.createElement("div");
+            sdiv.className = "static-block";
+            sdiv.style.width = width + "px";
+            sdiv.style.height = height + "px"
+            sdiv.style.top = Math.random() * 700 + "px";
+            sdiv.style.left = Math.random() * 1600 + "px";
+            // div.style.backgroundColor = `rgb(${Math.random()*255}, ${Math.random()*255}, ${Math.random()*255}, ${Math.random()})`;
+            container.appendChild(sdiv)
+        }*/
+        for(let i=0; i < 100; i++){
+            var div = document.createElement("div");
+            div.className = "block";
+            div.style.width = width + "px";
+            div.style.height = height + "px" 
+            div.style.top = Math.random() * 700 + "px";
+            div.style.left = Math.random() * 1600 + "px";
+            // div.style.backgroundColor = `rgb(${Math.random()*255}, ${Math.random()*255}, ${Math.random()*255}, ${Math.random()})`;
+            container.appendChild(div);
+        }
+        // document.width = "1920px";
+        // document.height = "1080px";
+
+        let tl = anime.timeline({
+            duration:5000,
+            direction: "alternate",
+            easing: "easeInOutBack",
+            loop: true,
+        }) 
+
+        tl.add({
+            targets: ".block",
+            top: function(el){return el.offsetTop + (Math.random() * 2 - 1) * 100},
+            left: function(el){return el.offsetLeft + (Math.random() * 2 - 1) * 200},
+            scale: function(){return Math.random()*2},
+            delay: anime.stagger(50, {from: "center"}),  
+        }).add({
+            targets: ".block",
+            top: function(el){return el.offsetTop + (Math.random() * 2 - 1) * 100},
+            left: function(el){return el.offsetLeft + (Math.random() * 2 - 1) * 200},
+            scale: function(){return Math.random()*2},
+            delay: anime.stagger(50, {from: "center"}),  
+        }).add({
+            targets: ".block",
+            top: function(el){return el.offsetTop + (Math.random() * 2 - 1) * 100},
+            left: function(el){return el.offsetLeft + (Math.random() * 2 - 1) * 200},
+            scale: function(){return Math.random()*2},
+            delay: anime.stagger(50, {from: "center"}),  
+        })
+
+    </script>
+</html>
